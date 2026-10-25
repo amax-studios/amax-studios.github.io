@@ -252,3 +252,220 @@ button { font: inherit; }
   .footer { padding-inline: 18px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; }
 }
+
+
+/* =========================================================
+   STRIKE XI FEATURE REVEAL — AMAX STUDIOS
+   Additive upgrade; existing site styles remain intact.
+   ========================================================= */
+
+.feature-card {
+  border-color: #214c35;
+  box-shadow: 0 18px 65px #00000022;
+  transition: border-color .25s ease, box-shadow .25s ease,
+              transform .25s ease;
+}
+
+.feature-card:hover {
+  border-color: #00ff8870;
+  box-shadow: 0 22px 75px #00ff880d;
+}
+
+.game-visual {
+  min-height: 390px;
+  background:
+    radial-gradient(ellipse at 50% 110%, #176b3b 0%, #0b2918 36%,
+                    #07130c 70%, #050806 100%);
+}
+
+.game-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, #02070450 0%, transparent 34%,
+                    transparent 66%, #020704b5 100%),
+    radial-gradient(ellipse at center, transparent 20%, #02070470 100%);
+}
+
+.stadium-grid {
+  opacity: .48;
+  background-size: 30px 30px;
+  transform: perspective(250px) rotateX(18deg) scale(1.25);
+}
+
+.stadium-light {
+  width: 230px;
+  height: 280px;
+  background: #00ff882b;
+  filter: blur(55px);
+  animation: strike-light-pulse 5s ease-in-out infinite alternate;
+}
+
+.light-one {
+  left: -70px;
+}
+
+.light-two {
+  right: -70px;
+  animation-delay: -2.5s;
+}
+
+.pitch {
+  left: 8%;
+  right: 8%;
+  bottom: -18%;
+  height: 58%;
+  border-color: #00ff8870;
+  box-shadow: 0 0 35px #00ff8810, inset 0 0 35px #00ff8808;
+}
+
+.pitch::before,
+.pitch::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #00ff8840;
+}
+
+.pitch::before {
+  inset: 14% 22%;
+}
+
+.pitch::after {
+  width: 24%;
+  height: 24%;
+  left: 38%;
+  top: 38%;
+  border-radius: 50%;
+}
+
+.ball {
+  font-size: 52px;
+  filter: drop-shadow(0 0 16px #00ff8870);
+  animation: strike-ball-float 3.5s ease-in-out infinite;
+}
+
+.visual-tag {
+  position: relative;
+  z-index: 2;
+  padding: 8px 11px;
+  border: 1px solid #00ff8838;
+  border-radius: 4px;
+  background: #06130bd9;
+  width: fit-content;
+  max-width: 75%;
+  font-size: 9px;
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #00ff8870;
+  border-radius: 4px;
+  background: #04150de8;
+  color: #d9ffe8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  box-shadow: 0 0 24px #00ff8818;
+  backdrop-filter: blur(10px);
+}
+
+.coming-soon-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 12px #00ff88;
+  animation: strike-dot-pulse 1.8s ease-in-out infinite;
+}
+
+.visual-title {
+  z-index: 1;
+  font-size: clamp(48px, 6vw, 78px);
+  text-shadow: 0 5px 35px #000, 0 0 45px #00ff8815;
+}
+
+.visual-title span {
+  color: #00ff88;
+  text-shadow: 0 0 28px #00ff8835;
+}
+
+.visual-bottom {
+  position: relative;
+  z-index: 1;
+  padding-top: 15px;
+  border-top: 1px solid #00ff8830;
+}
+
+.feature-info .status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid #00ff882d;
+  border-radius: 4px;
+  background: #00ff8808;
+}
+
+.feature-info h3 {
+  letter-spacing: -.045em;
+}
+
+@keyframes strike-light-pulse {
+  from { opacity: .65; }
+  to   { opacity: 1; }
+}
+
+@keyframes strike-ball-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -7px; }
+}
+
+@keyframes strike-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .45; }
+}
+
+@media (max-width: 600px) {
+  .game-visual {
+    min-height: 320px;
+    padding: 20px;
+  }
+
+  .coming-soon-badge {
+    top: 20px;
+    right: 20px;
+    padding: 8px 9px;
+    gap: 6px;
+    font-size: 8px;
+    letter-spacing: .08em;
+  }
+
+  .visual-tag {
+    max-width: 65%;
+    font-size: 8px;
+    letter-spacing: .1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stadium-light,
+  .ball,
+  .coming-soon-dot {
+    animation: none !important;
+  }
+
+  .feature-card {
+    transition: none;
+  }
+}
